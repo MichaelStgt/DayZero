@@ -1,8 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFrameworks>net10.0-android</TargetFrameworks>
-		<TargetFrameworks Condition="!$([MSBuild]::IsOSPlatform('linux'))">$(TargetFrameworks);net10.0-ios;net10.0-maccatalyst</TargetFrameworks>
+		<!--<TargetFrameworks Condition="!$([MSBuild]::IsOSPlatform('linux'))">$(TargetFrameworks);net10.0-ios;net10.0-maccatalyst</TargetFrameworks>-->
 		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net10.0-windows10.0.19041.0</TargetFrameworks>
 
 		<!-- Note for MacCatalyst:
@@ -18,6 +18,7 @@
 		<SingleProject>true</SingleProject>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
+		<LangVersion>preview</LangVersion>
 
 		<!-- Enable XAML source generation for faster build times and improved performance.
 		     This generates C# code from XAML at compile time instead of runtime inflation.
@@ -25,7 +26,8 @@
 		     For individual files, you can override by setting Inflator metadata:
 		       <MauiXaml Update="MyPage.xaml" Inflator="Default" /> (reverts to defaults: Runtime for Debug, XamlC for Release)
 		       <MauiXaml Update="MyPage.xaml" Inflator="Runtime" /> (force runtime inflation) -->
-		<MauiXamlInflator>SourceGen</MauiXamlInflator>
+
+		<!--<MauiXamlInflator>SourceGen</MauiXamlInflator>-->
 
 		<!-- Display name -->
 		<ApplicationTitle>DayZero</ApplicationTitle>
@@ -37,27 +39,32 @@
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
 		<ApplicationVersion>1</ApplicationVersion>
 
-		<!-- To develop, package, and publish an app to the Microsoft Store, see: https://aka.ms/MauiTemplateUnpackaged -->
-		<WindowsPackageType>None</WindowsPackageType>
+		<DefaultLanguage>en-US</DefaultLanguage>
+		<NeutralLanguage>en-US</NeutralLanguage>
 
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">15.0</SupportedOSPlatformVersion>
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">15.0</SupportedOSPlatformVersion>
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<!-- To develop, package, and publish an app to the Microsoft Store, see: https://aka.ms/MauiTemplateUnpackaged -->
+		<WindowsPackageType>MSIX</WindowsPackageType>
+
+		<!--<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">15.0</SupportedOSPlatformVersion>-->
+		<!--<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">15.0</SupportedOSPlatformVersion>-->
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">27.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+		<!--<HotReloadAutoRestart>true</HotReloadAutoRestart>-->
 	</PropertyGroup>
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<MauiIcon Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'" Resize="false" Color="#000000" Include="Resources\AppIcon\appicon.windows.svg" ForegroundFile="Resources\AppIcon\appiconfg.windows.svg" ForegroundScale="1.0" BaseSize="456,456" />
+
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#000000" ForegroundScale="0.5" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#000000" BaseSize="*,*" Resize="true" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
-		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
-		
+
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
 
@@ -65,9 +72,123 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
+	<PropertyGroup>
+		<DefineConstants>$(DefineConstants);MauiAllowImplicitXmlnsDeclaration</DefineConstants>
+		<EnablePreviewFeatures>true</EnablePreviewFeatures>
+	</PropertyGroup>
+
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.0" />
+		<Compile Remove="View\PagePlatformHeader.xaml.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<MauiXaml Remove="View\PagePlatformHeader.xaml" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="10.0.51" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.5" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="Model\" />
+		<Folder Include="Resources\Raw\" />
+		<Folder Include="View\Authentication\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\LibraryTen\040 Projects\LibraryTen\LibraryTen.csproj" />
+		<ProjectReference Include="..\..\..\MVVMBaseTen\040 Projects\MVVMBaseTen\MVVMBaseTen.csproj" />
+		<ProjectReference Include="..\..\..\Syncfusion\040 Projects\maui\src\Syncfusion.Maui.Toolkit.csproj" />
+		<ProjectReference Include="..\..\..\LibraryTen\040 Projects\LibraryTen.Maui.Generators\LibraryTen.Maui.Generators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+	</ItemGroup>
+
+	<Import Project="..\..\..\LibraryTen\040 Projects\LibraryTen.Maui.Generators\build\LibraryTen.Maui.Generators.targets" />
+
+	<PropertyGroup>
+		<!-- Replaces "Roboto" with "Default" in the property name -->
+		<FontDefaultName>Roboto</FontDefaultName>
+
+		<!-- Adds a suffix to the namespace: YourApp.Resources.Generated -->
+		<FontGenSuffix>Resources</FontGenSuffix>
+
+		<!-- Only generate code for files containing these words -->
+		<FontGenFilter>Black,Bold,Regular,Medium,Thin,Symbols</FontGenFilter>
+
+		<!-- Removes these words from the property name for cleaner code -->
+		<!-- Example: "Roboto-Regular" becomes "Roboto" (removed "Regular" and "-") -->
+		<FontGenStripWords>Regular,-</FontGenStripWords>
+	</PropertyGroup>
+	<ItemGroup>
+		<CompilerVisibleProperty Include="FontDefaultName" />
+		<CompilerVisibleProperty Include="RootNamespace" />
+		<CompilerVisibleProperty Include="FontGenSuffix" />
+		<CompilerVisibleProperty Include="FontGenFilter" />
+		<CompilerVisibleProperty Include="FontGenStripWords" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Update="Resources\Strings\FormatResources.Designer.cs">
+			<DependentUpon>FormatResources.resx</DependentUpon>
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+		</Compile>
+		<Compile Update="Resources\Strings\AppResources.Designer.cs">
+			<DependentUpon>AppResources.resx</DependentUpon>
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+		</Compile>
+		<Compile Update="View\About\AboutView.xaml.cs">
+		  <DependentUpon>AboutView.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="View\Dashboard\DashboardView.xaml.cs">
+			<DependentUpon>DashboardView.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="View\Main\Phone\MainView.xaml.cs">
+			<DependentUpon>MainView.xaml</DependentUpon>
+		</Compile>
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Update="Resources\Strings\FormatResources.resx">
+			<LastGenOutput>FormatResources.Designer.cs</LastGenOutput>
+			<Generator>PublicResXFileCodeGenerator</Generator>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resources\Strings\AppResources.resx">
+			<LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+			<Generator>PublicResXFileCodeGenerator</Generator>
+		</EmbeddedResource>
+	</ItemGroup>
+	<ItemGroup>
+		<MauiXaml Update="Resources\Styles\ApplicationColors.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="Resources\Styles\Converter.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="Resources\Styles\FontIcons.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="Resources\Styles\Styles.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="View\About\AboutView.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="View\BiometricAuthenticationView.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="View\Dashboard\DashboardView.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="View\MainWindow.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="View\Main\Desktop\MainView.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="View\Main\Tablet\MainView.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
 	</ItemGroup>
 
 </Project>

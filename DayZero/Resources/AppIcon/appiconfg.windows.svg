@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="456" height="456" viewBox="0 0 456 456" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+  <!--<rect fill="#ff0000" width="456" height="456"/>-->
+  <!--<path fill="none" stroke="white" stroke-width="35.43" stroke-linecap="round" stroke-miterlimit="22.9256" d="M361.15 269.77c-14.68,54.8 -59.79,96.14 -115.66,105.99 -79.4,14 -155.12,-39.02 -169.12,-118.42 -14,-79.4 39.02,-155.12 118.42,-169.12"/>-->
+  <!--<polygon fill="#00ff00" fill-rule="nonzero" stroke="#00ff00" stroke-width="17.72" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="7.6613" points="199.39,242.14 337.77,103.71 251.44,103.71 251.44,78 381.88,78 381.88,208.43 356.16,208.43 356.16,122.1 217.73,260.48 "/>-->
+  <!--<path fill="none" stroke="white" stroke-width="35.43" stroke-linecap="round" stroke-miterlimit="22.9256" d="M336.16 261.93c-11.92,44.52 -48.57,78.1 -93.95,86.1 -64.5,11.37 -126.01,-31.7 -137.39,-96.2 -11.37,-64.5 31.7,-126.01 96.2,-137.38"/>-->
+  <!--<polygon fill="lime" fill-rule="nonzero" stroke="lime" stroke-width="17.72" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="7.6613" points="204.76,239.49 317.17,127.03 247.04,127.03 247.04,106.15 353,106.15 353,212.11 332.11,212.11 332.11,141.98 219.66,254.39 "/>-->
+  <path fill="none" stroke="white" stroke-width="35.43" stroke-linecap="round" stroke-miterlimit="22.9256" d="M401.06 282.29c-19.08,71.23 -77.71,124.95 -150.33,137.76 -103.2,18.2 -201.62,-50.71 -219.82,-153.92 -18.19,-103.2 50.72,-201.61 153.92,-219.81"/>
+  <polygon fill="lime" fill-rule="nonzero" stroke="lime" stroke-width="17.72" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="7.6613" points="190.82,246.38 370.67,66.45 258.47,66.45 258.47,33.04 428,33.04 428,202.57 394.58,202.57 394.58,90.36 214.66,270.22 "/>
+</svg>

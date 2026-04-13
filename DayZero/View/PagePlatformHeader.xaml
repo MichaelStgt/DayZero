@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="DayZero.View.PagePlatformHeader"
+    xmlns="http://schemas.microsoft.com/dotnet/maui/global"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:DataType="PagePlatformHeader">
+    <ContentView.ControlTemplate>
+        <ControlTemplate>
+            <Grid
+                ColumnDefinitions="Auto, *,*"
+                RowDefinitions="Auto">
+                <Image
+                    Margin="4,0"
+                    Source="{x:OnIdiom Default={x:StaticResource TabletIcon},
+                                       Desktop={x:StaticResource DeskIcon},
+                                       Phone={x:StaticResource PhoneIcon}}">
+                </Image>
+                <Label
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+                    Margin="0"
+                    FontSize="{x:TemplateBinding FontSize}"
+                    HorizontalOptions="Fill"
+                    HorizontalTextAlignment="Start"
+                    Text="{x:TemplateBinding Platform}"
+                    TextColor="{x:TemplateBinding TextColor}"
+                    VerticalOptions="Start"
+                    VerticalTextAlignment="Start">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <!--<Span
+                                FontSize="{x:TemplateBinding FontSize}"
+                                Text="Platform"
+                                TextColor="{x:TemplateBinding TextColor}" />
+                            <Span
+                                FontSize="{x:TemplateBinding FontSize}"
+                                Text=": "
+                                TextColor="{x:TemplateBinding TextColor}" />-->
+                            <Span
+                                FontSize="{x:TemplateBinding FontSize}"
+                                Text="{x:TemplateBinding Platform}"
+                                TextColor="{x:TemplateBinding TextColor}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+                    Margin="0"
+                    HorizontalOptions="End"
+                    HorizontalTextAlignment="End"
+                    VerticalOptions="Start"
+                    VerticalTextAlignment="Start">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span
+                                FontSize="{x:TemplateBinding FontSize}"
+                                Text="{x:TemplateBinding InfoName}"
+                                TextColor="{x:TemplateBinding TextColor}" />
+                            <Span
+                                FontSize="{x:TemplateBinding FontSize}"
+                                Text=" "
+                                TextColor="{x:TemplateBinding TextColor}" />
+                            <Span
+                                FontSize="{x:TemplateBinding FontSize}"
+                                Text="{x:TemplateBinding Value}"
+                                TextColor="{x:TemplateBinding TextColor}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </Grid>
+        </ControlTemplate>
+    </ContentView.ControlTemplate>
+</ContentView>

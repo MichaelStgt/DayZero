@@ -1,3 +1,21 @@
 <Solution>
-  <Project Path="DayZero/DayZero.csproj" />
+  <Folder Name="/Samples/">
+    <Project Path="../../CommunityToolkit/040 Projects/samples/CommunityToolkit.Maui.Sample/CommunityToolkit.Maui.Sample.csproj">
+      <Build Solution="Debug|*" Project="false" />
+      <Deploy Solution="Debug|*" />
+    </Project>
+    <Project Path="../../Syncfusion/040 Projects/maui/samples/Gallery/Syncfusion.Maui.ControlsGallery.csproj">
+      <Build Solution="Debug|*" Project="false" />
+      <Deploy Solution="Release|*" />
+    </Project>
+  </Folder>
+  <Folder Name="/SolutionItems/">
+    <Project Path="../../LibraryTen/040 Projects/LibraryTen.Maui.Generators/LibraryTen.Maui.Generators.csproj" />
+    <Project Path="../../LibraryTen/040 Projects/LibraryTen/LibraryTen.csproj" />
+    <Project Path="../../MVVMBaseTen/040 Projects/MVVMBaseTen/MVVMBaseTen.csproj" />
+    <Project Path="../../Syncfusion/040 Projects/maui/src/Syncfusion.Maui.Toolkit.csproj" />
+  </Folder>
+  <Project Path="DayZero/DayZero.csproj">
+    <Deploy Solution="Debug|*" />
+  </Project>
 </Solution>

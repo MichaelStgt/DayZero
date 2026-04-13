@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Shell
     x:Class="DayZero.AppShell"
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns="http://schemas.microsoft.com/dotnet/maui/global"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:DayZero"
-    Title="DayZero">
+    xmlns:desktop="clr-namespace:DayZero.View.Desktop"
+    xmlns:tablet="clr-namespace:DayZero.View.Tablet"
+    xmlns:view="clr-namespace:DayZero.View"
+    Shell.FlyoutBehavior="Flyout">
+    <!--  Title="{x:Binding Title}"  -->
+    <ShellContent
+        Title="{x:Static AppResources.Dashboard}"
+        ContentTemplate="{x:DataTemplate DashboardView}"
+        Icon="dashboard.png" />
 
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Title="{x:Static AppResources.Home}"
+        ContentTemplate="{x:OnIdiom Desktop={x:DataTemplate desktop:MainView},
+                                    Tablet={x:DataTemplate tablet:MainView},
+                                    Default={x:DataTemplate MainView}}"
+        Icon="{x:StaticResource HomeIcon}" />
 
+    <ShellContent
+        Title="{x:Static AppResources.About}"
+        ContentTemplate="{x:DataTemplate AboutView}"
+        Icon="{x:StaticResource AboutIcon}" />
 </Shell>

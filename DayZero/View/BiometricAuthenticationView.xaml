@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="DayZero.View.BiometricAuthenticationView"
+    xmlns="http://schemas.microsoft.com/dotnet/maui/global"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <VerticalStackLayout
+        HorizontalOptions="Center"
+        VerticalOptions="Center">
+        <PagePlatformHeader
+            Margin="{x:StaticResource DefaultElementMargin}"
+            FontSize="{x:StaticResource SmallFontSize}"
+            InfoName="Page Name"
+            IsVisible="{x:DynamicResource DisplayPageHeader}"
+            Platform="Default"
+            TextColor="{x:AppThemeBinding Light={x:StaticResource PrimaryDark},
+                                          Dark={x:StaticResource Primary}}"
+            Value="BiometricAuthenticationView" />
+        <Label
+            x:Name="MessageLabel"
+            FontSize="16"
+            HorizontalOptions="Center"
+            Text="{x:Binding Message}" />
+        <ActivityIndicator
+            x:Name="LoadingIndicator"
+            HorizontalOptions="Center"
+            IsRunning="{x:Binding IsAuthenticating}"
+            IsVisible="{x:Binding IsAuthenticating}"
+            VerticalOptions="Center"
+            Color="{x:AppThemeBinding Light={x:StaticResource PrimaryDark},
+                                      Dark={x:StaticResource Primary}}" />
+        <Button
+            x:Name="RetryButton"
+            Command="{x:Binding AuthenticateCommand}"
+            HorizontalOptions="Center"
+            IsVisible="{x:Binding ShowRetry}"
+            Text="Retry" />
+    </VerticalStackLayout>
+</ContentPage>

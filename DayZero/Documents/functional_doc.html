@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DayZero - Requirements Specification</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #FAFAFA;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            padding: 40px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        h1, h2, h3 {
+            color: #287728;
+            margin-top: 1.5em;
+        }
+
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #287728;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+        }
+
+        strong, .accent {
+            color: #287728;
+        }
+
+        .logo-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: square;
+        }
+
+        .status-pending {
+            color: #888;
+            font-style: italic;
+        }
+
+        .decision-box {
+            background-color: #1A1A1A;
+            border-left: 4px solid #287728;
+            padding: 15px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="logo-container">
+        <svg width="100" height="100" viewBox="0 0 456 456" xmlns="http://www.w3.org/2000/svg">
+            <path fill="none" stroke="white" stroke-width="35.47" stroke-linecap="round" stroke-miterlimit="22.9256" d="M332.58 228.12c-16.11,60.13 -65.6,105.47 -126.9,116.28 -87.1,15.36 -170.17,-42.81 -185.53,-129.92 -15.36,-87.11 42.8,-170.17 129.91,-185.53" />
+            <path fill="#289928" stroke="#289928" d="M143.54 184.38l120.66 -120.7 -51.98 0c-9.8,0 -17.74,-7.94 -17.74,-17.74l0 -28.21c0,-9.79 7.94,-17.73 17.74,-17.73l143.09 0c9.8,0 17.74,7.94 17.74,17.73l0 143.1c0,9.8 -7.94,17.74 -17.74,17.74l-28.2 0c-9.8,0 -17.74,-7.94 -17.74,-17.74l0 -51.98 -121.66 121.62c-6.91,6.87 -18.09,6.86 -24.98,-0.03l-0.03 0.03 -20.12 -20.12c-6.93,-6.93 -6.93,-18.15 0,-25.08 0.31,-0.31 0.63,-0.61 0.96,-0.89zm11.57 13.43l151.82 -151.87 -94.71 0 0 -28.21 143.09 0 0 143.1 -28.2 0 0 -94.71 -151.87 151.81 -20.13 -20.12z" />
+        </svg>
+    </div>
+
+    <h1>Project Requirements Specification</h1>
+
+    <h2>Phase 1: App Identity & Core Objectives</h2>
+    <ul>
+        <li><strong>App Name:</strong> DayZero</li>
+        <li><strong>Primary Goal:</strong> Provide a discrete, highly effective tool to help users initiate and maintain sobriety from alcohol and nicotine.</li>
+        <li><strong>Target Audience:</strong> Individuals at any stage of recovery (Day 1 through long-term maintenance).</li>
+    </ul>
+
+    <h3>1.1 Naming Rationale & Decision</h3>
+    <p>When brainstorming app names, a major factor considered was <strong>discretion</strong>. Users often prefer an app name and icon that do not immediately signal "addiction recovery" to bystanders. The explored directions included:</p>
+    <ul>
+        <li><strong>Focus on the Journey:</strong> Names like <em>Pivot</em> and <em>Momentum</em> embrace the process of change.</li>
+        <li><strong>Focus on the Outcome:</strong> Names like <em>Clarity</em> and <em>Horizon</em> highlight what the user is gaining, keeping the app discreet.</li>
+        <li><strong>Action-Oriented:</strong> Short, punchy names like <em>Nix</em> and <em>Detach</em> sound modern and carry relevant meaning.</li>
+    </ul>
+
+    <div class="decision-box">
+        <p><strong>Final Decision:</strong> DayZero</p>
+        <p><strong>Reasoning:</strong> While "Nix" is a strong action word, it translates to "nothing" in German slang, which is unsuitable for the target market in the German App Store. "DayZero" was selected because it effectively reframes the starting point of sobriety as a powerful foundation rather than a deficit, applying equally well to brand-new users and those maintaining long-term streaks.</p>
+    </div>
+
+    <h2>Phase 2: Functional Requirements (MVP)</h2>
+    <ul>
+        <li class="status-pending">[To be defined]</li>
+    </ul>
+
+    <h2>Phase 3: Technical Architecture</h2>
+    <ul>
+        <li><strong>Framework:</strong> .NET MAUI (Cross-platform UI)</li>
+        <li><strong>Architecture Pattern:</strong> MVVM</li>
+        <li><strong>Primary Toolkit:</strong> CommunityToolkit.Mvvm</li>
+        <li class="status-pending"><strong>Local Storage:</strong> [To be defined]</li>
+        <li class="status-pending"><strong>Backend/Cloud:</strong> [To be defined]</li>
+    </ul>
+
+    <h2>Phase 4: UI/UX & Navigation</h2>
+    <ul>
+        <li class="status-pending">[To be defined]</li>
+    </ul>
+
+</body>
+</html>
