@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="DayZero.View.OnboardingMotivationView"
+    xmlns="http://schemas.microsoft.com/dotnet/maui/global"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:model="clr-namespace:DayZero.Model"
+    x:DataType="OnboardingMotivationViewModel"
+    Shell.NavBarIsVisible="False">
+
+    <ContentPage.Behaviors>
+        <StatusBarBehavior StatusBarColor="{x:AppThemeBinding Light={x:StaticResource BackgroundColorLight}, Dark={x:StaticResource BackgroundColorDark}}" StatusBarStyle="{x:AppThemeBinding Light=LightContent, Dark=DarkContent}" />
+    </ContentPage.Behaviors>
+
+    <Grid Padding="{StaticResource DefaultPagePadding}" RowDefinitions="Auto, *, Auto, Auto">
+
+        <VerticalStackLayout
+            Grid.Row="0"
+            Margin="0,20,0,28"
+            Spacing="10">
+            <Label Style="{x:StaticResource Headline}" Text="{Binding Title}" />
+            <Label Style="{x:StaticResource SubHeadline}" Text="{Binding Description}" />
+        </VerticalStackLayout>
+
+        <ScrollView Grid.Row="1" VerticalScrollBarVisibility="Never">
+            <VerticalStackLayout Spacing="20">
+
+                <CollectionView ItemsSource="{Binding Motivations}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout ItemSpacing="4" Orientation="Vertical" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="MotivationItem">
+                            <Border
+                                Margin="0,4"
+                                Padding="15"
+                                BackgroundColor="{x:AppThemeBinding Light={x:StaticResource Gray050},
+                                                                    Dark={x:StaticResource Gray950}}"
+                                Style="{x:StaticResource DefaultBorderStyle}">
+                                <Grid ColumnDefinitions="Auto, *">
+                                    <CheckBox
+                                        Grid.Column="0"
+                                        IsChecked="{Binding IsSelected, Mode=TwoWay}"
+                                        VerticalOptions="Center" />
+                                    <Label
+                                        Grid.Column="1"
+                                        Margin="12,0,0,0"
+                                        Text="{Binding Text}"
+                                        VerticalOptions="Center" />
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <VerticalStackLayout Spacing="8">
+                    <Label
+                        HorizontalOptions="Start"
+                        Style="{x:StaticResource TableHeaderLabel}"
+                        Text="Other (Personal Drive)" />
+                    <Border Style="{x:StaticResource DefaultBorderStyle}">
+                        <Entry
+                            Margin="12,0"
+                            Placeholder="Write your own motivation..."
+                            Text="{Binding CustomMotivation}" />
+                    </Border>
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <Button
+            Grid.Row="2"
+            Margin="0,20,0,20"
+            Command="{x:Binding FinishOnboardingCommand}"
+            Text="{x:Static AppResources.OnboardingCompleteSetup}" />
+    </Grid>
+</ContentPage>

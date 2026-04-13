@@ -13,6 +13,14 @@
         Size="{x:StaticResource IconFontSize}"
         Color="{x:AppThemeBinding Light={x:StaticResource OffBlack},
                                   Dark={x:StaticResource OffWhite}}" />
+    <FontImageSource
+        x:Key="OnboardingIcon"
+        FontFamily="{x:Static FontDefinitions.MaterialSymbolsOutlinedFontFamily}"
+        Glyph="{x:Static MaterialSymbols.Flowchart}"
+        Size="{x:StaticResource IconFontSize}"
+        Color="{x:AppThemeBinding Light={x:StaticResource OffBlack},
+                                  Dark={x:StaticResource OffWhite}}" />
+
 
     <!--  Region ToolbarItem  -->
 

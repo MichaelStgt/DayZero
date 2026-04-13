@@ -8,11 +8,14 @@
 // The sample from David Ortinau's blog post on simpler XAML in .NET MAUI 10:
 //https://devblogs.microsoft.com/dotnet/simpler-xaml-in-dotnet-maui-10/?hide_banner=true
 
-using Microsoft.Maui.Controls;
 using XmlnsDefinitionAttribute = Microsoft.Maui.Controls.XmlnsDefinitionAttribute;
 using XmlnsPrefixAttribute = Microsoft.Maui.Controls.XmlnsPrefixAttribute;
 
 [assembly: XmlnsPrefix("http://schemas.microsoft.com/dotnet/maui/global", "global")]
+
+[assembly: XmlnsDefinition(
+    "http://schemas.microsoft.com/dotnet/maui/global",
+    "DayZero.Model")]
 
 [assembly: XmlnsDefinition(
     "http://schemas.microsoft.com/dotnet/maui/global",

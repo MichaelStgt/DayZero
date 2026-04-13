@@ -1,0 +1,37 @@
+// <copyright file="OnboardingUsageView.xaml.cs" company="Behr, Michael">
+// Copyright Behr, Michael.
+// All rights reserved.
+// Use of this code is subject to the terms of our license.
+// See license.txt file in the project root for full license information.
+// </copyright>
+
+namespace DayZero.View
+{
+    public partial class OnboardingUsageView : ContentPage, IShellNavigationTarget
+    {
+        #region Constructors
+
+        public OnboardingUsageView()
+        {
+            throw new NotImplementedException();
+        }
+
+        public OnboardingUsageView(OnboardingUsageViewModel viewModel)
+        {
+            this.InitializeComponent();
+            this.ViewModel = viewModel;
+            this.BindingContext = this.ViewModel;
+        }
+
+        #endregion
+
+        #region Properties
+
+        public ObservableViewModel? ViewModel
+        {
+            get; set;
+        }
+
+        #endregion
+    }
+}

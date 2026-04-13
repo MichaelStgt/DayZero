@@ -78,10 +78,12 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<Compile Remove="View\Dashboard\DashboardView.old.xaml.cs" />
 		<Compile Remove="View\PagePlatformHeader.xaml.cs" />
 	</ItemGroup>
 
 	<ItemGroup>
+		<MauiXaml Remove="View\Dashboard\DashboardView.old.xaml" />
 		<MauiXaml Remove="View\PagePlatformHeader.xaml" />
 	</ItemGroup>
 
@@ -92,7 +94,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Folder Include="Model\" />
 		<Folder Include="Resources\Raw\" />
 		<Folder Include="View\Authentication\" />
 	</ItemGroup>
@@ -141,14 +142,14 @@
 		<Compile Update="View\About\AboutView.xaml.cs">
 		  <DependentUpon>AboutView.xaml</DependentUpon>
 		</Compile>
-		<Compile Update="View\Dashboard\DashboardView.xaml.cs">
-			<DependentUpon>DashboardView.xaml</DependentUpon>
-		</Compile>
 		<Compile Update="View\Main\Phone\MainView.xaml.cs">
 			<DependentUpon>MainView.xaml</DependentUpon>
 		</Compile>
 	</ItemGroup>
 	<ItemGroup>
+		<EmbeddedResource Update="Resources\Strings\AppResources.de.resx">
+		  <Generator></Generator>
+		</EmbeddedResource>
 		<EmbeddedResource Update="Resources\Strings\FormatResources.resx">
 			<LastGenOutput>FormatResources.Designer.cs</LastGenOutput>
 			<Generator>PublicResXFileCodeGenerator</Generator>
@@ -178,7 +179,7 @@
 			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
 		<MauiXaml Update="View\Dashboard\DashboardView.xaml">
-			<Generator>MSBuild:Compile</Generator>
+		  <Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
 		<MauiXaml Update="View\MainWindow.xaml">
 			<Generator>MSBuild:Compile</Generator>
@@ -188,6 +189,18 @@
 		</MauiXaml>
 		<MauiXaml Update="View\Main\Tablet\MainView.xaml">
 			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="View\Onboarding\OnboardingMotivationView.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="View\Onboarding\OnboardingUsageView.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="View\Onboarding\OnboardingDateView.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="View\Onboarding\OnboardingSubstanceView.xaml">
+		  <Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
 	</ItemGroup>
 

@@ -7,16 +7,10 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary
-                    x:Name="Colors"
-                    Source="Resources/Styles/ApplicationColors.xaml" />
+                <ResourceDictionary x:Name="Colors" Source="Resources/Styles/ApplicationColors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Converter.xaml" />
-                <ResourceDictionary
-                    x:Name="Styles"
-                    Source="Resources/Styles/Styles.xaml" />
-                <ResourceDictionary
-                    x:Name="FontIcons"
-                    Source="Resources/Styles/FontIcons.xaml" />
+                <ResourceDictionary x:Name="Styles" Source="Resources/Styles/Styles.xaml" />
+                <ResourceDictionary x:Name="FontIcons" Source="Resources/Styles/FontIcons.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="DayZero.View.OnboardingSubstanceView"
+    xmlns="http://schemas.microsoft.com/dotnet/maui/global"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:DataType="OnboardingSubstanceViewModel"
+    Shell.NavBarIsVisible="False">
+    <ContentPage.Behaviors>
+        <StatusBarBehavior StatusBarColor="{x:AppThemeBinding Light={x:StaticResource BackgroundColorLight}, Dark={x:StaticResource BackgroundColorDark}}" StatusBarStyle="{x:AppThemeBinding Light=LightContent, Dark=DarkContent}" />
+    </ContentPage.Behaviors>
+
+    <Grid Padding="28,40,28,40" RowDefinitions="Auto, *, Auto">
+        <VerticalStackLayout
+            Grid.Row="0"
+            Margin="0,0,0,28"
+            Spacing="10">
+            <Label Style="{x:StaticResource Headline}" Text="{Binding Title}" />
+            <Label Style="{x:StaticResource SubHeadline}" Text="{Binding Description}" />
+        </VerticalStackLayout>
+
+        <CollectionView Grid.Row="1" ItemsSource="{Binding Substances}">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="4" Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="SubstanceItem">
+                    <Border
+                        Margin="0,4"
+                        Padding="15"
+                        BackgroundColor="{x:AppThemeBinding Light={x:StaticResource Gray050},
+                                                            Dark={x:StaticResource Gray950}}">
+
+                        <Grid ColumnDefinitions="Auto, *">
+                            <CheckBox
+                                Grid.Column="0"
+                                IsChecked="{Binding IsSelected, Mode=TwoWay}"
+                                VerticalOptions="Center" />
+
+                            <Label
+                                Grid.Column="1"
+                                Margin="12,0,0,0"
+                                Text="{Binding Name}"
+                                VerticalOptions="Center" />
+                        </Grid>
+
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button
+            Grid.Row="2"
+            Command="{Binding ContinueCommand}"
+            Text="{x:Static AppResources.Continue}" />
+
+    </Grid>
+</ContentPage>

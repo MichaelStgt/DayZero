@@ -97,6 +97,15 @@ namespace DayZero.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Alcohol.
+        /// </summary>
+        public static string Alcohol {
+            get {
+                return ResourceManager.GetString("Alcohol", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All.
         /// </summary>
         public static string All {
@@ -165,6 +174,15 @@ namespace DayZero.Resources.Strings {
         public static string Close {
             get {
                 return ResourceManager.GetString("Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Continue.
+        /// </summary>
+        public static string Continue {
+            get {
+                return ResourceManager.GetString("Continue", resourceCulture);
             }
         }
         
@@ -268,11 +286,65 @@ namespace DayZero.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nicotine.
+        /// </summary>
+        public static string Nicotine {
+            get {
+                return ResourceManager.GetString("Nicotine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to OK.
         /// </summary>
         public static string OK {
             get {
                 return ResourceManager.GetString("OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Onboarding.
+        /// </summary>
+        public static string Onboarding {
+            get {
+                return ResourceManager.GetString("Onboarding", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Complete Setup.
+        /// </summary>
+        public static string OnboardingCompleteSetup {
+            get {
+                return ResourceManager.GetString("OnboardingCompleteSetup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What are you stepping away from?.
+        /// </summary>
+        public static string OnboardingSubstanceDescription {
+            get {
+                return ResourceManager.GetString("OnboardingSubstanceDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select the habits you want to break today..
+        /// </summary>
+        public static string OnboardingSubstanceTitle {
+            get {
+                return ResourceManager.GetString("OnboardingSubstanceTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Other.
+        /// </summary>
+        public static string Other {
+            get {
+                return ResourceManager.GetString("Other", resourceCulture);
             }
         }
         

@@ -8,20 +8,33 @@
     xmlns:view="clr-namespace:DayZero.View"
     Shell.FlyoutBehavior="Flyout">
     <!--  Title="{x:Binding Title}"  -->
-    <ShellContent
-        Title="{x:Static AppResources.Dashboard}"
-        ContentTemplate="{x:DataTemplate DashboardView}"
-        Icon="dashboard.png" />
 
     <ShellContent
+        Title="Dashboard"
+        ContentTemplate="{DataTemplate DashboardView}"
+        Icon="dashboard.png"
+        Route="DashboardView" />
+
+    <ShellContent
+        Title="{x:Static AppResources.Onboarding}"
+        ContentTemplate="{x:DataTemplate OnboardingSubstanceView}"
+        Icon="{x:StaticResource OnboardingIcon}" />
+    <!--<ShellContent
+        Title="{x:Static AppResources.Dashboard}"
+        ContentTemplate="{x:DataTemplate DashboardView}"
+        Icon="dashboard.png" />-->
+
+    <!--<ShellContent
         Title="{x:Static AppResources.Home}"
         ContentTemplate="{x:OnIdiom Desktop={x:DataTemplate desktop:MainView},
                                     Tablet={x:DataTemplate tablet:MainView},
                                     Default={x:DataTemplate MainView}}"
-        Icon="{x:StaticResource HomeIcon}" />
+        Icon="{x:StaticResource HomeIcon}" />-->
 
-    <ShellContent
+    <!--<ShellContent
         Title="{x:Static AppResources.About}"
         ContentTemplate="{x:DataTemplate AboutView}"
-        Icon="{x:StaticResource AboutIcon}" />
+        Icon="{x:StaticResource AboutIcon}" />-->
+
+
 </Shell>

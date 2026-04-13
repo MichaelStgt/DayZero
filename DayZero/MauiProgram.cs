@@ -42,8 +42,9 @@ namespace DayZero
             //            builder.Logging.AddDebug();
             //#endif
 
-            Type[] inputElement = [typeof(Entry), typeof(Editor)];
+            Type[] inputElement = [typeof(Entry), typeof(Editor), typeof(DatePicker), typeof(TimePicker)];
             builder.InputElementBorder(removeBorder: true, args: inputElement);
+
             builder.UseLibraryToolkit();
             // RegisterEssentials(builder);
             RegisterNavigation(builder);
@@ -60,13 +61,29 @@ namespace DayZero
         private static void RegisterNavigation(in MauiAppBuilder builder)
         {
 #pragma warning disable CA1416 // Validate platform compatibility
+
             builder.Services.AddSingleton<AboutViewModel>();
             builder.Services.AddSingleton<AppShellViewModel>();
-            builder.Services.AddSingleton<DashboardViewModel>();
             builder.Services.AddSingleton<MainWindowViewModel>();
             builder.Services.AddSingleton<MainViewModel>();
 
-            builder.Services.AddSingleton<DashboardView>();
+
+            builder.Services.AddTransient<DashboardView>();
+            builder.Services.AddTransient<DashboardViewModel>();
+
+            // Register Dependencies for Onboarding
+            builder.Services.AddTransient<OnboardingSubstanceViewModel>();
+            builder.Services.AddTransient<OnboardingSubstanceView>();
+
+            builder.Services.AddTransient<OnboardingDateViewModel>();
+            builder.Services.AddTransient<OnboardingDateView>();
+
+            builder.Services.AddTransient<OnboardingUsageView>();
+            builder.Services.AddTransient<OnboardingUsageViewModel>();
+
+            builder.Services.AddTransient<OnboardingMotivationView>();
+            builder.Services.AddTransient<OnboardingMotivationViewModel>();
+
 #if WINDOWS
             builder.Services.AddSingleton<View.Desktop.MainView>();
 #else

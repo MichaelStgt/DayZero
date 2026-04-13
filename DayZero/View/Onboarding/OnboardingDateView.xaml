@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="DayZero.View.OnboardingDateView"
+    xmlns="http://schemas.microsoft.com/dotnet/maui/global"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:sys="clr-namespace:System;assembly=netstandard"
+    x:DataType="OnboardingDateViewModel"
+    Shell.NavBarIsVisible="False">
+
+    <ContentPage.Behaviors>
+        <StatusBarBehavior StatusBarColor="{x:AppThemeBinding Light={x:StaticResource BackgroundColorLight}, Dark={x:StaticResource BackgroundColorDark}}" StatusBarStyle="{x:AppThemeBinding Light=LightContent, Dark=DarkContent}" />
+    </ContentPage.Behaviors>
+
+    <Grid Padding="28,40,28,40" RowDefinitions="Auto, *, Auto">
+
+        <VerticalStackLayout
+            Grid.Row="0"
+            Margin="0,0,0,28"
+            Spacing="10">
+            <Label Style="{x:StaticResource Headline}" Text="{Binding Title}" />
+            <Label Style="{x:StaticResource SubHeadline}" Text="{Binding Description}" />
+        </VerticalStackLayout>
+
+        <VerticalStackLayout
+            Grid.Row="1"
+            Spacing="20"
+            VerticalOptions="Center">
+
+            <VerticalStackLayout Spacing="8">
+                <Label
+                    HorizontalOptions="Start"
+                    Style="{x:StaticResource TableHeaderLabel}"
+                    Text="Date" />
+                <Border Padding="15,2" BackgroundColor="{x:AppThemeBinding Light={x:StaticResource Gray050}, Dark={x:StaticResource Gray950}}">
+                    <DatePicker
+                        Date="{Binding StartDate}"
+                        Format="YYYY.mm.dd"
+                        MaximumDate="{x:Static sys:DateTime.Today}" />
+                </Border>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="8">
+                <Label
+                    HorizontalOptions="Start"
+                    Style="{x:StaticResource TableHeaderLabel}"
+                    Text="Time" />
+                <Border Padding="15,0,15,0" BackgroundColor="{x:AppThemeBinding Light={x:StaticResource Gray050}, Dark={x:StaticResource Gray950}}">
+                    <TimePicker
+                        Format="HH:mm"
+                        HorizontalOptions="Center"
+                        Time="{Binding StartTime}"
+                        VerticalOptions="Center" />
+                </Border>
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+
+        <Button
+            Grid.Row="2"
+            Command="{Binding ContinueCommand}"
+            Text="{x:Static AppResources.Continue}" />
+
+    </Grid>
+</ContentPage>

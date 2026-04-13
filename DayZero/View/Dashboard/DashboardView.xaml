@@ -1,53 +1,18 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
     x:Class="DayZero.View.DashboardView"
     xmlns="http://schemas.microsoft.com/dotnet/maui/global"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:DataType="DashboardViewModel">
-    <Shell.TitleView>
-        <Label Text="{x:Binding Title}" />
-    </Shell.TitleView>
-    <ContentPage.ToolbarItems>
-        <ToolbarItem
-            Command="{x:Binding ShowSettingsCommand}"
-            IconImageSource="{x:StaticResource AccountIcon}"
-            Text="{x:Static AppResources.Account}" />
-    </ContentPage.ToolbarItems>
-    <Grid ColumnDefinitions="1*" RowDefinitions="Auto, Auto, Auto, Auto">
-        <PagePlatformHeader
-            Margin="{x:StaticResource DefaultElementMargin}"
-            FontSize="{x:StaticResource SmallFontSize}"
-            InfoName="Page:"
-            IsVisible="{x:DynamicResource DisplayPageHeader}"
-            SymbolFontSize="20"
-            TextColor="{x:AppThemeBinding Light={x:StaticResource OffBlack},
-                                          Dark={x:StaticResource OffWhite}}"
-            Value="Dashboard" />
-        <Border
-            x:Name="ProgressArea"
-            Grid.Row="1"
-            BackgroundColor="#2400ff00"
-            MinimumHeightRequest="100">
-            <Label
-                Grid.Row="2"
-                HorizontalOptions="Center"
-                Text="Progress Area"
-                VerticalOptions="Center" />
-            <!--  x  -->
-        </Border>
-        <Border
-            x:Name="ErmergencyBuzzerArea"
-            Grid.Row="2"
-            BackgroundColor="#24ff0000"
-            MinimumHeightRequest="80">
-            <Label
-                Grid.Row="2"
-                HorizontalOptions="Center"
-                Text="Ermergency Buzzer Area"
-                VerticalOptions="Center" />
-            <!--  x  -->
-        </Border>
+
+    <ContentPage.Behaviors>
+        <StatusBarBehavior StatusBarColor="{x:AppThemeBinding Light={x:StaticResource BackgroundColorLight}, Dark={x:StaticResource BackgroundColorDark}}" StatusBarStyle="{x:AppThemeBinding Light=LightContent, Dark=DarkContent}" />
+    </ContentPage.Behaviors>
+
+    <Grid Padding="{StaticResource DefaultPagePadding}">
+        <VerticalStackLayout Spacing="10" VerticalOptions="Center">
+            <Label Style="{x:StaticResource Headline}" Text="{Binding Title}" />
+            <Label Style="{x:StaticResource SubHeadline}" Text="{Binding Description}" />
+        </VerticalStackLayout>
     </Grid>
-
-
 </ContentPage>

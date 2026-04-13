@@ -7,9 +7,6 @@
 
 namespace DayZero.ViewModel
 {
-    using DayZero.Messaging;
-    using LibraryTen.Messaging;
-
     /// <summary>
     /// Defines the <see cref="DashboardViewModel" />.
     /// </summary>
@@ -23,6 +20,8 @@ namespace DayZero.ViewModel
         public DashboardViewModel()
         {
             this.Title = AppResources.Dashboard;
+            // TODO: Replace these hardcoded strings with AppResources later
+            this.Description = "Welcome to Day Zero.";
         }
 
         #endregion

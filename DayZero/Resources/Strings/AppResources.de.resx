@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About" xml:space="preserve">
-    <value>About</value>
+    <value>Über</value>
   </data>
   <data name="Add" xml:space="preserve">
-    <value>Add</value>
+    <value>Hinzufügen</value>
   </data>
   <data name="ApplicationTitle" xml:space="preserve">
     <value>Day Zero</value>
@@ -187,7 +187,7 @@
     <value>Undo</value>
   </data>
   <data name="All" xml:space="preserve">
-    <value>All</value>
+    <value>Alle</value>
   </data>
   <data name="Close" xml:space="preserve">
     <value>Close</value>
@@ -218,7 +218,7 @@
     <value>Account</value>
   </data>
   <data name="Alcohol" xml:space="preserve">
-    <value>Alcohol</value>
+    <value>Alkohol</value>
   </data>
   <data name="Nicotine" xml:space="preserve">
     <value>Nicotine</value>
@@ -239,6 +239,6 @@
     <value>Continue</value>
   </data>
   <data name="OnboardingCompleteSetup" xml:space="preserve">
-    <value>Complete Setup</value>
+    <value>Onboarding abschliessen</value>
   </data>
 </root>

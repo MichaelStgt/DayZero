@@ -19,7 +19,9 @@ namespace DayZero
         /// </summary>
         public AppShell()
         {
-            this.InitializeComponent();
+            throw new NotImplementedException();
+            // this.InitializeComponent();
+
         }
 
         /// <summary>
@@ -31,6 +33,25 @@ namespace DayZero
             this.InitializeComponent();
             this.ViewModel = viewModel;
             this.BindingContext = this.ViewModel;
+            this.RegisterRoutes();
+        }
+
+        private void RegisterRoutes()
+        {
+            // Get the assembly where your views are located
+            var assembly = typeof(AppShell).Assembly;
+
+            // Find all types that implement IShellNavigationTarget, and are actual classes (not the interface itself or abstract classes)
+            var viewTypes = assembly.GetTypes()
+                .Where(t => typeof(IShellNavigationTarget).IsAssignableFrom(t)
+                         && !t.IsInterface
+                         && !t.IsAbstract);
+
+            // Iterate and register each dynamically
+            foreach (var type in viewTypes)
+            {
+                Routing.RegisterRoute(type.Name, type);
+            }
         }
 
         #endregion
